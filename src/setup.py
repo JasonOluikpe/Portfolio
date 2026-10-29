@@ -82,7 +82,7 @@ CLIP_LIGHTBOX_SCRIPT = '''
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">' +
       '<path d="M5 5l14 14M19 5L5 19"/></svg></button>' +
       '<div class="lb-content">' +
-      '<video class="lb-video" controls playsinline loop></video>' +
+      '<video class="lb-video" playsinline loop></video>' +
       '<div class="lb-title"></div><div class="lb-caption"></div></div>';
     document.body.appendChild(box);
     vid = box.querySelector('.lb-video');
