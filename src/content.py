@@ -19,7 +19,7 @@ PROJECT = Project(
     ),
     stack=['Python', 'Code Modularity', 'Object-Oriented Programming', 'Better than IDLE'],
     links=[
-        ('icon:apple', f'{STATIC_URL}/BetterIDE-1.4.1.dmg'),
+        ('icon:apple', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.1/BetterIDE-1.4.1.dmg'),
         ('icon:windows', ''),
     ],
     overview=('media/overview.mp4', 'Insert Video Here'),
