@@ -28,7 +28,7 @@ def render_hero() -> None:
         label(PROFILE['tagline'], 'tagline')
         with div('actions'):
             link('Resume', PROFILE['resume'], 'btn primary', new_tab=True)
-            link('LinkedIn', PROFILE['linkedin'], 'btn')
+            link('LinkedIn', PROFILE['linkedin'], 'btn', new_tab=True)
 
 
 def render_clips(clips) -> None:
