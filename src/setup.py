@@ -9,25 +9,18 @@ FONTS_HTML = '''
 <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@400;500;600&display=swap' rel='stylesheet'>
 '''
 
-# Lazy-video + pause-offscreen behaviour.
-# - `.lazy-video` elements start with no src; the observer copies `data-src` -> `src`
-#   once they are within ~200px of the viewport, then calls play().
-# - Any `.watch-video` element is paused when it leaves that band, so only a
-#   handful of videos decode at any given time.
+# Pause-offscreen behaviour (no lazy loading: every video gets its src immediately).
+# - Any `.watch-video` element is paused when it leaves the viewport band and resumed
+#   when it comes back, so only a handful of videos decode at any given time.
 # - A MutationObserver re-scans so late-rendered videos (e.g. after "Show more")
 #   get picked up automatically.
-VIDEO_LAZY_SCRIPT = '''
+VIDEO_PAUSE_SCRIPT = '''
 <script>
 (() => {
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      const v = e.target;
-      if (e.isIntersecting) {
-        if (!v.getAttribute('src') && v.dataset.src) v.src = v.dataset.src;
-        v.play().catch(() => {});
-      } else {
-        v.pause();
-      }
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
     });
   }, { rootMargin: '200px' });
 
@@ -82,12 +75,16 @@ CLIP_LIGHTBOX_SCRIPT = '''
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">' +
       '<path d="M5 5l14 14M19 5L5 19"/></svg></button>' +
       '<div class="lb-content">' +
-      '<video class="lb-video" playsinline muted loop></video>' +
+      '<video class="lb-video" playsinline muted loop disablepictureinpicture disableremoteplayback></video>' +
       '<div class="lb-title"></div><div class="lb-caption"></div></div>';
     document.body.appendChild(box);
     vid = box.querySelector('.lb-video');
     titleEl = box.querySelector('.lb-title');
     capEl = box.querySelector('.lb-caption');
+    // No player UI: if anything pauses the video while open, resume it.
+    vid.addEventListener('pause', () => {
+      if (box.classList.contains('open')) vid.play().catch(() => {});
+    });
     box.addEventListener('click', e => {
       if (e.target.closest('.lb-close') || !e.target.closest('.lb-content')) close();
     });
@@ -144,14 +141,15 @@ def add_fonts() -> None:
     ui.add_head_html(FONTS_HTML)
 
 
-def add_video_lazy() -> None:
-    '''Call inside a page function. Installs the lazy-load + pause observer.'''
-    ui.add_body_html(VIDEO_LAZY_SCRIPT)
+def add_video_pause() -> None:
+    '''Call inside a page function. Pauses videos that are scrolled out of view.'''
+    ui.add_body_html(VIDEO_PAUSE_SCRIPT)
 
 
 def add_featurable() -> None:
     '''Call inside a page function. Loads the Featurable reviews widget script.'''
     ui.add_body_html(FEATURABLE_SCRIPT)
+
 
 def add_clip_lightbox() -> None:
     '''Call inside a page function. Makes clips clickable (fullscreen viewer).'''

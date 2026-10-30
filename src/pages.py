@@ -2,7 +2,7 @@ from nicegui import ui
 
 from .components import div, heading, label, link, media, paragraph
 from .content import ABOUT, ABOUT_CLIPS, FEATURABLE_WIDGET_ID, PROFILE, PROJECT, REFERENCES
-from .setup import add_clip_lightbox, add_featurable, add_fonts, add_video_lazy
+from .setup import add_clip_lightbox, add_featurable, add_fonts, add_video_pause
 
 
 def render_topbar() -> None:
@@ -104,14 +104,14 @@ def render_footer() -> None:
         with div('wrap foot'):
             label(f"© {PROFILE['name']} 2026")
             with div():
-                link("Email", f"mailto:{PROFILE['email']}")
-                link('LinkedIn', PROFILE['linkedin'])
+                link("Email", f"mailto:{PROFILE['email']}", new_tab=True)
+                link('LinkedIn', PROFILE['linkedin'], new_tab=True)
 
 
 @ui.page('/')
 def index() -> None:
     add_fonts()
-    add_video_lazy()
+    add_video_pause()
     add_clip_lightbox()
     ui.dark_mode().enable()
     render_topbar()

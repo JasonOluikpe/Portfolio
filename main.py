@@ -19,5 +19,5 @@ if __name__ in {'__main__', '__mp_main__'}:
         reload=False,
         show=False,
         host='0.0.0.0',
-        port=int(os.environ.get('PORT', 8080)),
+        port=int(os.environ.get('PORT', 3000)),
     )
