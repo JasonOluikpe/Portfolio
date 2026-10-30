@@ -2,6 +2,7 @@ from nicegui import ui
 
 from .components import div, heading, label, link, media, paragraph
 from .content import ABOUT, ABOUT_CLIPS, FEATURABLE_WIDGET_ID, PROFILE, PROJECT, REFERENCES
+from .media import media_url
 from .setup import add_clip_lightbox, add_featurable, add_fonts, add_video_pause
 
 
@@ -9,7 +10,7 @@ def render_topbar() -> None:
     with div('wrap'):
         with div('topbar'):
             with div('brand'):
-                ui.image(PROFILE['logo']).props("alt='logo'")
+                ui.image(media_url(PROFILE['logo'])).props("alt='logo'")
                 label(PROFILE['name'])
             with div('nav'):
                 link('Projects', '#projects')

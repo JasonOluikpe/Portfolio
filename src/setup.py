@@ -1,5 +1,6 @@
 from nicegui import ui
 
+from . import media  # noqa: F401
 from .config import STYLES_FILE
 from .scripts import CLIP_LIGHTBOX, FEATURABLE, VIDEO_PAUSE
 
