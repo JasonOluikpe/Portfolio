@@ -9,7 +9,7 @@ FONTS_HTML = '''
 <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@400;500;600&display=swap' rel='stylesheet'>
 '''
 
-# Pause-offscreen behaviour (no lazy loading: every video gets its src immediately).
+# Pause-offscreen + always-muted behaviour (no lazy loading: every video gets its src immediately).
 # - Any `.watch-video` element is paused when it leaves the viewport band and resumed
 #   when it comes back, so only a handful of videos decode at any given time.
 # - A MutationObserver re-scans so late-rendered videos (e.g. after "Show more")
@@ -24,8 +24,12 @@ VIDEO_PAUSE_SCRIPT = '''
     });
   }, { rootMargin: '200px' });
 
-  const watch = () => document.querySelectorAll('video.watch-video:not([data-watched])')
-    .forEach(v => { v.dataset.watched = '1'; io.observe(v); });
+  const watch = () => {
+    // every video on the page is always muted (including the fullscreen viewer)
+    document.querySelectorAll('video').forEach(v => { v.defaultMuted = true; v.muted = true; });
+    document.querySelectorAll('video.watch-video:not([data-watched])')
+      .forEach(v => { v.dataset.watched = '1'; io.observe(v); });
+  };
 
   new MutationObserver(watch).observe(document.body, { childList: true, subtree: true });
   watch();
@@ -75,7 +79,7 @@ CLIP_LIGHTBOX_SCRIPT = '''
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">' +
       '<path d="M5 5l14 14M19 5L5 19"/></svg></button>' +
       '<div class="lb-content">' +
-      '<video class="lb-video" playsinline muted loop disablepictureinpicture disableremoteplayback></video>' +
+      '<video class="lb-video" playsinline loop disablepictureinpicture disableremoteplayback></video>' +
       '<div class="lb-title"></div><div class="lb-caption"></div></div>';
     document.body.appendChild(box);
     vid = box.querySelector('.lb-video');
@@ -97,7 +101,6 @@ CLIP_LIGHTBOX_SCRIPT = '''
     titleEl.innerHTML = (clip.querySelector('.clip-title') || {}).innerHTML || '';
     capEl.innerHTML = (clip.querySelector('.clip-caption') || {}).innerHTML || '';
     vid.src = src;
-    vid.muted = false;
     box.classList.add('open');
     document.documentElement.style.overflow = 'hidden';
     vid.play().catch(() => {});
