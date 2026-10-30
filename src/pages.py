@@ -28,7 +28,7 @@ def render_hero() -> None:
         label(PROFILE['role'], 'role')
         label(PROFILE['tagline'], 'tagline')
         with div('actions'):
-            link('Resume', PROFILE['resume'], 'btn primary', new_tab=True)
+            link('Resume', media_url(PROFILE['resume']), 'btn primary', new_tab=True)
             link('LinkedIn', PROFILE['linkedin'], 'btn', new_tab=True)
 
 

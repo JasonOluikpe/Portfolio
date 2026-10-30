@@ -8,7 +8,7 @@ from starlette.background import BackgroundTask
 
 from .config import MEDIA_ORIGIN
 
-ALLOWED = ('.mp4', '.png')
+ALLOWED = ('.mp4', '.png', '.pdf')
 FORWARD = ('content-length', 'content-range')
 client = httpx.AsyncClient(follow_redirects=True, timeout=30)
 
@@ -30,6 +30,7 @@ async def serve_media(name: str, request: Request):
         raise HTTPException(upstream.status_code)
     out = {k: upstream.headers[k] for k in FORWARD if k in upstream.headers}
     out['Accept-Ranges'] = 'bytes'
+    out['Content-Disposition'] = 'inline'
     out['Cache-Control'] = 'public, max-age=86400'
     return StreamingResponse(
         upstream.aiter_raw(),
