@@ -9,6 +9,7 @@ __pycache__/
 
 # VS Code Workspace settings
 *.code-workspace
+.vscode/
 
 # OS generated files
 .DS_Store

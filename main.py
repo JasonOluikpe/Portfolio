@@ -13,7 +13,7 @@ configure_app()
 if __name__ in {'__main__', '__mp_main__'}:
     ui.run(
         title=f"{PROFILE['name']} | {PROFILE['role']}",
-        favicon=str('https://github.com/JasonOluikpe/Portfolio/releases/download/assets/logo.png'),
+        favicon=PROFILE['logo'],
         dark=True,
         reload=False,
         show=False,
