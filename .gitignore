@@ -1,0 +1,24 @@
+# Python Virtual Environment
+env/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code Workspace settings
+*.code-workspace
+.vscode/
+
+# Large installer file (Do not push .dmg files to GitHub!)
+*.dmg
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Videos
+*.mp4
+*.webm
+*.mov
