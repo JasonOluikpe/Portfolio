@@ -23,20 +23,27 @@ VIDEO_PAUSE = '''
 FEATURABLE = '''
 <script>
 (() => {
-  const load = () => {
-    if (!document.querySelector('[data-featurable-async]')) return false;
-    if (!document.querySelector('script[data-featurable]')) {
-      const s = document.createElement('script');
-      s.src = 'https://cdn.featurable.com/widget/v2/embed.js';
-      s.charset = 'UTF-8';
-      s.defer = true;
-      s.dataset.featurable = '1';
-      document.body.appendChild(s);
-    }
+  const inject = () => {
+    if (document.querySelector('script[data-featurable]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://cdn.featurable.com/widget/v2/embed.js';
+    s.charset = 'UTF-8';
+    s.defer = true;
+    s.dataset.featurable = '1';
+    document.body.appendChild(s);
+  };
+
+  const watch = () => {
+    const el = document.querySelector('[data-featurable-async]');
+    if (!el) return false;
+    new IntersectionObserver((entries, io) => {
+      if (entries.some(e => e.isIntersecting)) { io.disconnect(); inject(); }
+    }, { rootMargin: '400px' }).observe(el);
     return true;
   };
-  if (!load()) {
-    const mo = new MutationObserver(() => { if (load()) mo.disconnect(); });
+
+  if (!watch()) {
+    const mo = new MutationObserver(() => { if (watch()) mo.disconnect(); });
     mo.observe(document.body, { childList: true, subtree: true });
   }
 })();

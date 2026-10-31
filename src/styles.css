@@ -410,7 +410,6 @@ code {
   justify-content: center;
   padding: 24px;
   background: rgba(0, 0, 0, .94);
-  backdrop-filter: blur(8px);
   overflow-y: auto;
 }
 

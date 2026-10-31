@@ -14,8 +14,7 @@ ICONS = {
 }
 
 def link(text: str, href: str, classes: str = '', new_tab: bool = False, download: bool = False):
-    kwargs = {'new_tab': True} if new_tab else {}
-    with ui.link(target=href, **kwargs).classes(classes) as el:
+    with ui.link(target=href, new_tab=new_tab).classes(classes) as el:
         if text.startswith('icon:'):
             _html(ICONS[text[5:]], 'span', 'icon-svg')
         else:
@@ -61,6 +60,6 @@ def label(text: str, classes: str = ''):
 
 def media(src: str):
     with div('media'):
-        ui.video(media_url(src), controls=False, autoplay=True, muted=True, loop=True) \
+        ui.video(media_url(src), controls=False, muted=True, loop=True) \
             .classes('watch-video') \
-            .props('playsinline preload=auto')
+            .props('playsinline preload=none')
