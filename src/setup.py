@@ -2,7 +2,7 @@ from nicegui import ui
 
 from . import media  # noqa: F401
 from .config import STYLES_FILE
-from .scripts import CLIP_LIGHTBOX, FEATURABLE, VIDEO_PAUSE
+from .scripts import CLIP_LIGHTBOX, FAVICON, FEATURABLE, VIDEO_PAUSE
 
 FONTS_HTML = '''
 <link rel='preconnect' href='https://fonts.googleapis.com'>
@@ -29,3 +29,7 @@ def add_featurable() -> None:
 
 def add_clip_lightbox() -> None:
     ui.add_body_html(CLIP_LIGHTBOX)
+
+
+def add_favicon(url: str) -> None:
+    ui.add_head_html(FAVICON.replace('__ICON__', url))

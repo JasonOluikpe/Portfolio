@@ -114,3 +114,14 @@ CLIP_LIGHTBOX = '''
 })();
 </script>
 '''
+
+FAVICON = '''
+<link rel="icon" href="__ICON__">
+<script>
+addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('link[rel*="icon"]').forEach(l => {
+    if (l.getAttribute('href') !== '__ICON__') l.remove();
+  });
+});
+</script>
+'''
