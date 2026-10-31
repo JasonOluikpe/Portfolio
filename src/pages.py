@@ -112,6 +112,8 @@ def render_footer() -> None:
 @ui.page('/')
 def index() -> None:
     add_fonts()
+    icon = media_url(PROFILE['logo'])
+    ui.add_head_html(f'<link rel="icon" href="{icon}">')
     add_video_pause()
     add_clip_lightbox()
     ui.dark_mode().enable()
