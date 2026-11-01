@@ -5,6 +5,7 @@ PROFILE = dict(
     role='Future SWE',
     tagline='4th year Computer Science Student looking for an ==*internship*==.',
     linkedin='https://www.linkedin.com/in/ebubeoluikpe/',
+    github='https://github.com/JasonOluikpe',
     resume='https://github.com/JasonOluikpe/Portfolio/releases/download/assets/Resume.pdf',
     email='oluikpe.ebube@gmail.com',
     logo='https://github.com/JasonOluikpe/Portfolio/releases/download/assets/logo.png',

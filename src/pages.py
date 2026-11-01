@@ -30,6 +30,7 @@ def render_hero() -> None:
         with div('actions'):
             link('Resume', media_url(PROFILE['resume']), 'btn primary', new_tab=True)
             link('LinkedIn', PROFILE['linkedin'], 'btn', new_tab=True)
+            link('GitHub', PROFILE['github'], 'btn', new_tab=True)
 
 
 def render_clips(clips) -> None:
@@ -107,6 +108,7 @@ def render_footer() -> None:
             with div():
                 link("Email", f"mailto:{PROFILE['email']}", new_tab=True)
                 link('LinkedIn', PROFILE['linkedin'], new_tab=True)
+                link('GitHub', PROFILE['github'], new_tab=True)
 
 
 @ui.page('/')
