@@ -1,6 +1,6 @@
 import os
 
-from nicegui import ui
+from nicegui import app, ui
 
 from src.content import PROFILE
 from src.setup import configure_app
@@ -8,6 +8,11 @@ import src.pages
 
 
 configure_app()
+
+
+@app.get('/health')
+async def health():
+    return {'status': 'ok'}
 
 
 if __name__ in {'__main__', '__mp_main__'}:
