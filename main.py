@@ -4,7 +4,6 @@ from nicegui import app, ui
 
 from src.content import PROFILE
 from src.setup import configure_app
-import src.pages
 
 
 configure_app()
