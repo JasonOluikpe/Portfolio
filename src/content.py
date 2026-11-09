@@ -6,9 +6,9 @@ PROFILE = dict(
     tagline='4th year Computer Science Student looking for an ==*internship*==.',
     linkedin='https://www.linkedin.com/in/ebubeoluikpe/',
     github='https://github.com/JasonOluikpe',
-    resume='https://github.com/JasonOluikpe/Portfolio/releases/download/assets/Resume.pdf',
+    resume='https://jasonoluikpe.github.io/Portfolio-Media/Resume.pdf',
     email='oluikpe.ebube@gmail.com',
-    logo='https://github.com/JasonOluikpe/Portfolio/releases/download/assets/logo.png',
+    logo='https://jasonoluikpe.github.io/Portfolio-Media/logo.png',
 )
 
 PROJECT = Project(
@@ -20,27 +20,27 @@ PROJECT = Project(
     ),
     stack=['Python', 'Code Modularity', 'Object-Oriented Programming', 'Better than IDLE'],
     links=[
-        ('icon:apple', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.1/BetterIDE-1.4.1.dmg'),
-        ('icon:windows', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.1/BetterIDE-x64-v1.4.1.zip'),
+        ('icon:apple', ''),
+        ('icon:windows', ''),
     ],
-    overview='https://github.com/JasonOluikpe/Portfolio/releases/download/assets/overview.mp4',
+    overview='https://jasonoluikpe.github.io/Portfolio-Media/overview.mp4',
     clips=[
-        ('Split Screen Editing', 'Working with two files at the ***same time***. Easy swapping with `Ctrl+1` and `Ctrl+2`.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/split.mp4'),
-        ('Close/Re-open Tabs', 'Closing tabs with `Ctrl+W` and re-opening them with `Ctrl+Shift+T`.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/close.mp4'),
-        ('Autosave', "Don't have to worry about saving files anymore, it saves on ***idle*** and when file is closed.", 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/save.mp4'),
-        ('Workspace', 'Use `Ctrl+K` to open a folder and `Ctrl+E` to toggle the workspace.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/workspace.mp4'),
-        ('Open File', 'Open files with/without a workspace with `Ctrl+O` for quick and simple editing.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/open.mp4'),
-        ('Move Lines', 'Move ***lines*** of code with `Alt+Up` or `Alt+Down`. On MacOS, use `Option+Up` or `Option+Down`', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/move.mp4'),
+        ('Split Screen Editing', 'Working with two files at the ***same time***. Easy swapping with `Ctrl+1` and `Ctrl+2`.', 'https://jasonoluikpe.github.io/Portfolio-Media/split.mp4'),
+        ('Close/Re-open Tabs', 'Closing tabs with `Ctrl+W` and re-opening them with `Ctrl+Shift+T`.', 'https://jasonoluikpe.github.io/Portfolio-Media/close.mp4'),
+        ('Autosave', "Don't have to worry about saving files anymore, it saves on ***idle*** and when file is closed.", 'https://jasonoluikpe.github.io/Portfolio-Media/save.mp4'),
+        ('Workspace', 'Use `Ctrl+K` to open a folder and `Ctrl+E` to toggle the workspace.', 'https://jasonoluikpe.github.io/Portfolio-Media/workspace.mp4'),
+        ('Open File', 'Open files with/without a workspace with `Ctrl+O` for quick and simple editing.', 'https://jasonoluikpe.github.io/Portfolio-Media/open.mp4'),
+        ('Move Lines', 'Move ***lines*** of code with `Alt+Up` or `Alt+Down`. On MacOS, use `Option+Up` or `Option+Down`', 'https://jasonoluikpe.github.io/Portfolio-Media/move.mp4'),
     ],
     more='Still not impressed?',
     joke='Did I mention I built these ==***FROM SCRATCH***==',
     more_clips=[
-        ('Run Code', 'Run whatever file you are working on with `Ctrl+Enter`. Toggle the terminal with `Ctrl+T`.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/run.mp4'),
-        ('Multi-line Cursor', 'Can code on more than one line at a time, even in different positions.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/multi.mp4'),
-        ('Individual Find', 'Each tab has its own find, use with `Ctrl+F`', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/find.mp4'),
-        ('Built-In Terminal', 'Working terminal used for all sorts of things like installing packages and recieving output.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/terminal.mp4'),
-        ('Syntax Checker', 'A built-in syntax checker for causal mistakes.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/syntax.mp4'),
-        ('Automatic VENV', 'If no virtual environment is detected, it builds one in the same location as file.', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/venv.mp4'),
+        ('Run Code', 'Run whatever file you are working on with `Ctrl+Enter`. Toggle the terminal with `Ctrl+T`.', 'https://jasonoluikpe.github.io/Portfolio-Media/run.mp4'),
+        ('Multi-line Cursor', 'Can code on more than one line at a time, even in different positions.', 'https://jasonoluikpe.github.io/Portfolio-Media/multi.mp4'),
+        ('Individual Find', 'Each tab has its own find, use with `Ctrl+F`', 'https://jasonoluikpe.github.io/Portfolio-Media/find.mp4'),
+        ('Built-In Terminal', 'Working terminal used for all sorts of things like installing packages and recieving output.', 'https://jasonoluikpe.github.io/Portfolio-Media/terminal.mp4'),
+        ('Syntax Checker', 'A built-in syntax checker for causal mistakes.', 'https://jasonoluikpe.github.io/Portfolio-Media/syntax.mp4'),
+        ('Automatic VENV', 'If no virtual environment is detected, it builds one in the same location as file.', 'https://jasonoluikpe.github.io/Portfolio-Media/venv.mp4'),
     ],
 )
 
@@ -56,9 +56,9 @@ ABOUT = [
 ]
 
 ABOUT_CLIPS: list[ClipData] = [
-    ('Gym Session', "Been working out for about 4 years.", 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/gym.mp4'),
-    ('Date Night', "Braided my girlfriend's hair before we went bowling.", 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/gf.mp4'),
-    ('My Dog', 'Her name is waffles!', 'https://github.com/JasonOluikpe/Portfolio/releases/download/assets/dog.mp4'),
+    ('Gym Session', "Been working out for about 4 years.", 'https://jasonoluikpe.github.io/Portfolio-Media/gym.mp4'),
+    ('Date Night', "Braided my girlfriend's hair before we went bowling.", 'https://jasonoluikpe.github.io/Portfolio-Media/gf.mp4'),
+    ('My Dog', 'Her name is waffles!', 'https://jasonoluikpe.github.io/Portfolio-Media/dog.mp4'),
 ]
 
 FEATURABLE_WIDGET_ID = 'c97dee88-e824-4a2c-994f-42b3e6e427df'
