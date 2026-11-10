@@ -364,7 +364,7 @@ code {
 
 .clips {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 26px;
   margin-top: 44px;
 }
@@ -617,7 +617,7 @@ code {
 
 .refs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 26px;
   margin-top: 28px;
 }
@@ -673,4 +673,269 @@ footer {
 /* ==text== in content -> signal green */
 .green {
   color: var(--green);
+}
+
+/* ---------- Mobile / compact layout ---------- */
+html,
+body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 768px) {
+  body,
+  body.body--dark {
+    font-size: 15px;
+  }
+
+  .wrap {
+    padding: 0 16px;
+  }
+
+  section {
+    padding: 36px 0;
+    scroll-margin-top: 8px;
+  }
+
+  h2.title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .paragraph,
+  .desc {
+    line-height: 1.55;
+  }
+
+  .desc {
+    margin: 14px 0;
+  }
+
+  /* top bar: brand on top, nav scrolls in one compact row */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 0 8px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: .95rem;
+  }
+
+  .brand img {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 18px;
+    font-size: .9rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* hero */
+  .hero {
+    padding: 36px 0 12px;
+  }
+
+  .prompt {
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .chev {
+    width: 20px;
+    height: 20px;
+    border-top-width: 7px;
+    border-right-width: 7px;
+    border-radius: 3px;
+    margin-right: 8px;
+  }
+
+  .hero-name {
+    font-size: clamp(1.6rem, 8.5vw, 2.4rem);
+  }
+
+  .cursor {
+    width: 8px;
+    height: clamp(1.7rem, 8vw, 2.3rem);
+    margin-left: -2px;
+    border-radius: 4px;
+  }
+
+  .role {
+    font-size: .95rem;
+    margin-top: 14px;
+  }
+
+  .tagline {
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .actions {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: .9rem;
+  }
+
+  /* projects */
+  .proj-head {
+    gap: 8px 16px;
+  }
+
+  .proj-name {
+    font-size: 1.5rem;
+  }
+
+  .proj-sum {
+    margin-top: 2px;
+  }
+
+  .proj-links {
+    gap: 12px;
+  }
+
+  .proj-links a {
+    font-size: 34px;
+    padding-bottom: 4px;
+  }
+
+  .chips {
+    gap: 6px;
+  }
+
+  .chip {
+    padding: 4px 10px;
+    font-size: .8rem;
+  }
+
+  .media {
+    margin-top: 18px;
+    border-radius: 12px;
+  }
+
+  .clips {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .clip-title {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .clip-caption {
+    font-size: .88rem;
+    line-height: 1.4;
+  }
+
+  .more-title {
+    font-size: 1.25rem;
+    margin-top: 36px;
+    padding-top: 22px;
+  }
+
+  .more-title + .clips {
+    margin-top: 16px;
+  }
+
+  .sub-title {
+    font-size: 1.15rem;
+    margin-top: 32px;
+    padding-top: 20px;
+  }
+
+  .reviews-embed {
+    margin-top: 16px;
+  }
+
+  /* references: two compact columns */
+  .refs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .ref {
+    padding: 14px;
+  }
+
+  .ref-name {
+    font-size: 1rem;
+  }
+
+  .ref-phone {
+    margin-top: 6px;
+    font-size: .9rem;
+  }
+
+  /* footer */
+  footer {
+    padding: 20px 0 32px;
+  }
+
+  .foot {
+    flex-direction: column;
+    gap: 10px;
+    font-size: .9rem;
+  }
+
+  .foot a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
+  /* lightbox */
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lb-content {
+    width: 100%;
+  }
+
+  .lb-video {
+    border-radius: 10px;
+    max-height: 60vh;
+  }
+
+  .lb-title {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .lb-close {
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-name {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    gap: 14px;
+  }
 }
