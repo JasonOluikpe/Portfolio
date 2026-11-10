@@ -116,6 +116,7 @@ CLIP_LIGHTBOX = '''
 '''
 
 FAVICON = '''
+<link rel="icon" href="__ICON__">
 <link rel="apple-touch-icon" href="__ICON__">
 <script>
 addEventListener('DOMContentLoaded', () => {
