@@ -16,11 +16,14 @@ async def health():
 
 
 if __name__ in {'__main__', '__mp_main__'}:
-    ui.run(
-        title=f"{PROFILE['name']} | {PROFILE['role']}",
-        dark=True,
-        reload=False,
-        show=False,
-        host='0.0.0.0',
-        port=int(os.environ.get('PORT', 3000)),
-    )
+    try:
+        ui.run(
+            title=f"{PROFILE['name']} | {PROFILE['role']}",
+            dark=True,
+            reload=False,
+            show=False,
+            host='0.0.0.0',
+            port=int(os.environ.get('PORT', 3000)),
+        )
+    except PermissionError:
+        pass
