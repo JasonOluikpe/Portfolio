@@ -3,7 +3,7 @@ from nicegui import ui
 from .components import div, heading, label, link, media, paragraph
 from .content import ABOUT, ABOUT_CLIPS, FEATURABLE_WIDGET_ID, PROFILE, PROJECT, REFERENCES
 from .media import media_url
-from .setup import add_clip_lightbox, add_favicon, add_featurable, add_fonts, add_video_pause
+from .setup import add_analytics, add_clip_lightbox, add_favicon, add_featurable, add_fonts, add_video_pause
 
 
 def render_topbar() -> None:
@@ -117,6 +117,7 @@ def index() -> None:
     add_favicon(media_url(PROFILE['logo']))
     add_video_pause()
     add_clip_lightbox()
+    add_analytics()
     ui.dark_mode().enable()
     render_topbar()
     render_hero()
