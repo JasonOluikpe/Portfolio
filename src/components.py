@@ -2,8 +2,6 @@ import re
 
 from nicegui import ui
 
-from .media import media_url
-
 
 def div(classes: str = ''):
     return ui.element('div').classes(classes)
@@ -60,6 +58,6 @@ def label(text: str, classes: str = ''):
 
 def media(src: str):
     with div('media'):
-        ui.video(media_url(src), controls=False, muted=True, loop=True) \
+        ui.video(src, controls=False, muted=True, loop=True) \
             .classes('watch-video') \
             .props('playsinline preload=none')

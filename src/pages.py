@@ -2,7 +2,6 @@ from nicegui import ui
 
 from .components import div, heading, label, link, media, paragraph
 from .content import ABOUT, ABOUT_CLIPS, FEATURABLE_WIDGET_ID, PROFILE, PROJECT, REFERENCES
-from .media import media_url
 from .setup import add_analytics, add_clip_lightbox, add_favicon, add_featurable, add_fonts, add_video_pause
 
 
@@ -10,7 +9,7 @@ def render_topbar() -> None:
     with div('wrap'):
         with div('topbar'):
             with div('brand'):
-                ui.image(media_url(PROFILE['logo'])).props("alt='logo'")
+                ui.image(PROFILE['logo']).props("alt='logo'")
                 label(PROFILE['name'])
             with div('nav'):
                 link('Projects', '#projects')
@@ -28,7 +27,7 @@ def render_hero() -> None:
         label(PROFILE['role'], 'role')
         label(PROFILE['tagline'], 'tagline')
         with div('actions'):
-            link('Resume', media_url(PROFILE['resume']), 'btn primary', new_tab=True)
+            link('Resume', PROFILE['resume'], 'btn primary', new_tab=True)
             link('LinkedIn', PROFILE['linkedin'], 'btn', new_tab=True)
             link('GitHub', PROFILE['github'], 'btn', new_tab=True)
 
@@ -114,7 +113,7 @@ def render_footer() -> None:
 @ui.page('/')
 def index() -> None:
     add_fonts()
-    add_favicon(media_url(PROFILE['logo']))
+    add_favicon(PROFILE['logo'])
     add_video_pause()
     add_clip_lightbox()
     add_analytics()
