@@ -20,7 +20,7 @@ PROJECT = Project(
     ),
     stack=['Python', 'Code Modularity', 'Object-Oriented Programming', 'Better than IDLE'],
     links=[
-        ('icon:apple', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.2/BetterIDE-1.4.2.dmg'),
+        ('icon:apple', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.4/BetterIDE-arm64-v1.4.4.dmg'),
         ('icon:windows', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.2/BetterIDE-1.4.2.zip'),
     ],
     overview='https://jasonoluikpe.github.io/Portfolio-Media/overview.mp4',
