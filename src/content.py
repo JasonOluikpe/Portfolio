@@ -1,4 +1,12 @@
 from .models import ClipData, Project
+from .releases import latest_urls
+
+
+def betteride_links() -> list[tuple[str, str]]:
+    """Newest macOS/Windows downloads from GitHub Releases (no manual updating)."""
+    urls = latest_urls()
+    return [('icon:apple', urls['mac']), ('icon:windows', urls['windows'])]
+
 
 PROFILE = dict(
     name='Jason Oluikpe',
@@ -19,10 +27,7 @@ PROJECT = Project(
         'the concepts and coding principles covered in my classes.'
     ),
     stack=['Python', 'Code Modularity', 'Object-Oriented Programming', 'Better than IDLE'],
-    links=[
-        ('icon:apple', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.4/BetterIDE-arm64-v1.4.4.dmg'),
-        ('icon:windows', 'https://github.com/JasonOluikpe/Portfolio/releases/download/v1.4.2/BetterIDE-1.4.2.zip'),
-    ],
+    links=betteride_links(),
     overview='https://jasonoluikpe.github.io/Portfolio-Media/overview.mp4',
     clips=[
         ('Split Screen Editing', 'Working with two files at the ***same time***. Easy swapping with `Ctrl+1` and `Ctrl+2`.', 'https://jasonoluikpe.github.io/Portfolio-Media/split.mp4'),

@@ -1,7 +1,7 @@
 from nicegui import ui
 
 from .components import div, heading, label, link, media, paragraph
-from .content import ABOUT, ABOUT_CLIPS, FEATURABLE_WIDGET_ID, PROFILE, PROJECT, REFERENCES
+from .content import ABOUT, ABOUT_CLIPS, FEATURABLE_WIDGET_ID, PROFILE, PROJECT, REFERENCES, betteride_links
 from .setup import add_analytics, add_clip_lightbox, add_favicon, add_featurable, add_fonts, add_video_pause
 
 
@@ -51,7 +51,7 @@ def render_projects() -> None:
                     label(pr.name, 'proj-name')
                     label(pr.summary, 'proj-sum')
                 with div('proj-links'):
-                    for text, href in pr.links:
+                    for text, href in betteride_links():  # re-resolved per page load (cached 10 min)
                         link(text, href, download=True)
             paragraph(pr.description, 'desc')
             with div('chips'):
