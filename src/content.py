@@ -34,7 +34,7 @@ PROJECT = Project(
         ('Close/Re-open Tabs', 'Closing tabs with `Ctrl+W` and re-opening them with `Ctrl+Shift+T`.', 'https://jasonoluikpe.github.io/Portfolio-Media/close.mp4'),
         ('Autosave', "Don't have to worry about saving files anymore, it saves on ***idle*** and when file is closed.", 'https://jasonoluikpe.github.io/Portfolio-Media/save.mp4'),
         ('Workspace', 'Use `Ctrl+K` to open a folder and `Ctrl+E` to toggle the workspace.', 'https://jasonoluikpe.github.io/Portfolio-Media/workspace.mp4'),
-        ('Open File', 'Open files with/without a workspace with `Ctrl+O` for quick and simple editing.', 'https://jasonoluikpe.github.io/Portfolio-Media/open.mp4'),
+        ('Open File', 'Open files with/without a workspace with `Ctrl+O`. Quick open with `Ctrl+P`.', 'https://jasonoluikpe.github.io/Portfolio-Media/open.mp4'),
         ('Move Lines', 'Move ***lines*** of code with `Alt+Up` or `Alt+Down`. On MacOS, use `Option+Up` or `Option+Down`', 'https://jasonoluikpe.github.io/Portfolio-Media/move.mp4'),
     ],
     more='Still not impressed?',
