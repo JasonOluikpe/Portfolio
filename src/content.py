@@ -3,7 +3,6 @@ from .releases import latest_urls
 
 
 def betteride_links() -> list[tuple[str, str]]:
-    """Newest macOS/Windows downloads from GitHub Releases (no manual updating)."""
     urls = latest_urls()
     return [('icon:apple', urls['mac']), ('icon:windows', urls['windows'])]
 
@@ -12,7 +11,7 @@ PROFILE = dict(
     name='Jason Oluikpe',
     role='Future SWE',
     tagline='4th year Computer Science Student looking for an ==*internship*==.',
-    linkedin='https://www.linkedin.com/in/ebubeoluikpe/',
+    linkedin='https://www.linkedin.com/in/jasonoluikpe/',
     github='https://github.com/JasonOluikpe',
     resume='https://jasonoluikpe.github.io/Portfolio-Media/Resume.pdf',
     email='oluikpe.ebube@gmail.com',
@@ -74,12 +73,12 @@ REFERENCES: list[tuple[str, str, str]] = [  # Name, Job title, Phone
 ]
 
 
-ROLES = ['Future SWE', 'Python developer', 'IDE builder', 'Brock University CS student']
+ROLES = ['Future SWE', 'Python Developer', 'Intern', 'Brock University CS Student']
 
 FACTS: list[tuple[int, str, str]] = [  # number, suffix, label
     (4, 'th', 'year Computer Science at Brock University'),
-    (12, '', 'features built from scratch in Better IDE'),
-    (4, '+', 'years of consistent gym training'),
+    (12, '+', 'features built from scratch in Better IDE'),
+    (295, 'LBS', 'Bench Press at 159 LBS bodyweight'),
     (1, '', 'very good dog named Waffles'),
 ]
 

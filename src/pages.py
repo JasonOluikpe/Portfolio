@@ -212,7 +212,7 @@ def contact() -> None:
         with div('wrap page-head'):
             eyebrow('contact')
             with div('reveal'):
-                ui.html("<h1>Let's talk.</h1>", sanitize=False)
+                ui.html("<h1>Let's talk!</h1>", sanitize=False)
             paragraph(PROFILE['tagline'], 'lead reveal')
 
             with div('contact-grid'):
