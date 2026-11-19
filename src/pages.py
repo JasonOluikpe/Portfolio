@@ -3,7 +3,6 @@ from nicegui import ui
 from .components import div, label, link, media, paragraph, rich
 from .content import (ABOUT, ABOUT_CLIPS, FACTS, FEATURABLE_WIDGET_ID, INTERESTS, PROFILE,
                       PROJECT, REFERENCES, ROLES, betteride_links)
-from .layout import page_frame
 from .setup import add_featurable
 
 
