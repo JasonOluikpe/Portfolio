@@ -126,3 +126,100 @@ addEventListener('DOMContentLoaded', () => {
 });
 </script>
 '''
+
+INTERACTIONS = '''
+<script>
+(() => {
+  const fine = matchMedia('(pointer:fine)').matches;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll progress + cursor glow */
+  const onScroll = () => {
+    const bar = document.querySelector('.progress');
+    if (!bar) return;
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  if (fine && !reduce) {
+    addEventListener('pointermove', e => {
+      const g = document.querySelector('.glow');
+      if (g) g.style.transform = 'translate(' + (e.clientX - 300) + 'px,' + (e.clientY - 300) + 'px)';
+    }, { passive: true });
+  }
+
+  /* reveal on scroll */
+  const rev = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); }
+  }), { threshold: .12 });
+
+  /* scroll-spy for the side rail + dots */
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const id = e.target.id;
+    document.querySelectorAll('.rail a').forEach(a =>
+      a.classList.toggle('on', a.getAttribute('href') === '#' + id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+
+  /* typed text */
+  const type = el => {
+    const words = JSON.parse(el.dataset.words);
+    let w = 0, i = 0, del = false;
+    const tick = () => {
+      const word = words[w];
+      i += del ? -1 : 1;
+      el.textContent = word.slice(0, i);
+      let t = del ? 35 : 75;
+      if (!del && i === word.length) { del = true; t = 1500; }
+      else if (del && i === 0) { del = false; w = (w + 1) % words.length; t = 350; }
+      setTimeout(tick, t);
+    };
+    reduce ? (el.textContent = words[0]) : tick();
+  };
+
+  /* 3D tilt on cards */
+  const tilt = el => {
+    if (!fine || reduce) return;
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      el.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
+      el.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+      el.style.setProperty('--mx', ((x + .5) * 100) + '%');
+      el.style.setProperty('--my', ((y + .5) * 100) + '%');
+    });
+    el.addEventListener('pointerleave', () => {
+      el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg');
+    });
+  };
+
+  /* count-up numbers */
+  const count = el => {
+    const to = +el.dataset.count; let n = 0;
+    const step = () => { n += Math.max(1, to / 30); el.textContent = Math.min(to, Math.round(n)) + (el.dataset.suffix || ''); if (n < to) requestAnimationFrame(step); };
+    step();
+  };
+  const cio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { count(e.target); cio.unobserve(e.target); } }));
+
+  /* horizontal carousel buttons */
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-scroll]');
+    if (!b) return;
+    const track = document.getElementById(b.dataset.target);
+    if (track) track.scrollBy({ left: +b.dataset.scroll * (track.clientWidth * .8), behavior: 'smooth' });
+  });
+
+  const scan = () => {
+    document.querySelectorAll('.reveal:not(.in):not([data-r])').forEach(el => { el.dataset.r = 1; rev.observe(el); });
+    document.querySelectorAll('.snap-sec:not([data-s])').forEach(el => { el.dataset.s = 1; spy.observe(el); });
+    document.querySelectorAll('[data-words]:not([data-t])').forEach(el => { el.dataset.t = 1; type(el); });
+    document.querySelectorAll('.tilt:not([data-tl])').forEach(el => { el.dataset.tl = 1; tilt(el); });
+    document.querySelectorAll('[data-count]:not([data-c])').forEach(el => { el.dataset.c = 1; cio.observe(el); });
+    onScroll();
+  };
+  new MutationObserver(scan).observe(document.body, { childList: true, subtree: true });
+  scan();
+})();
+</script>
+'''

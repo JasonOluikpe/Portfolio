@@ -1,7 +1,7 @@
 from nicegui import ui
 
 from .config import STYLES_FILE
-from .scripts import CLIP_LIGHTBOX, FAVICON, FEATURABLE, VIDEO_PAUSE
+from .scripts import CLIP_LIGHTBOX, FAVICON, FEATURABLE, INTERACTIONS, VIDEO_PAUSE
 
 ANALYTICS_HTML = '''
 <!-- Cloudflare Web Analytics -->
@@ -42,3 +42,8 @@ def add_favicon(url: str) -> None:
 
 def add_analytics() -> None:
     ui.add_body_html(ANALYTICS_HTML)
+
+
+def add_interactions() -> None:
+    ui.add_body_html(INTERACTIONS)
+    ui.add_body_html(VIDEO_PAUSE)

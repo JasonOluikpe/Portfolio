@@ -5,7 +5,7 @@ from nicegui import app, ui
 
 from src.content import PROFILE
 from src.setup import configure_app
-import src.pages
+import src.pages  # noqa: F401  (registers the routes)
 
 
 configure_app()

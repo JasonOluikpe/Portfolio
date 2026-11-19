@@ -72,3 +72,15 @@ REFERENCES: list[tuple[str, str, str]] = [  # Name, Job title, Phone
     ('Gareth', 'Aerosports Supervisor', '+1 (365) 855-2719'),
     ('Dupinder Kaur', 'Aerosports Manager', '+1 (289) 697-7882'),
 ]
+
+
+ROLES = ['Future SWE', 'Python developer', 'IDE builder', 'Brock University CS student']
+
+FACTS: list[tuple[int, str, str]] = [  # number, suffix, label
+    (4, 'th', 'year Computer Science at Brock University'),
+    (12, '', 'features built from scratch in Better IDE'),
+    (4, '+', 'years of consistent gym training'),
+    (1, '', 'very good dog named Waffles'),
+]
+
+INTERESTS = ['Python', 'Building tools', 'Gym', 'Bowling', 'Dogs', 'Customer service']

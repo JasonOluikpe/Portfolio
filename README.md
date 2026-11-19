@@ -1,6 +1,6 @@
 # Portfolio
+My website built with NiceGUI, hosted with Deplexo; fallback with GitHub Pages.
 
-My website
 
 https://jasonoluikpe.de.deplexo.com/
 
