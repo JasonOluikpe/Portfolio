@@ -180,7 +180,7 @@ def about() -> None:
                         for para in ABOUT:
                             paragraph(para, 'about-text reveal')
                     with div('card interests reveal'):
-                        label('Currently', 'muted')
+                        label('Intrests', 'muted')
                         with div('chips'):
                             for i in INTERESTS:
                                 label(i, 'chip')

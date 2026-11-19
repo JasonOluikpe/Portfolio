@@ -82,4 +82,4 @@ FACTS: list[tuple[int, str, str]] = [  # number, suffix, label
     (1, '', 'very good dog named Waffles'),
 ]
 
-INTERESTS = ['Python', 'Building tools', 'Gym', 'Bowling', 'Dogs', 'Customer service']
+INTERESTS = ['Python', 'Programming', 'Working Out', 'Video Games', 'Money']
